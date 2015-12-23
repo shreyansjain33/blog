@@ -1,3 +1,5 @@
+Parse.initialize("BZYDHX8VimegytEoGAITFtIgOPdZWZKQ7FCEqmi6", "pn2u753nBFtWl1jwJWCPAD5mlrGaNLwirJwoUyOV"); 
+
 $(function() {
  
     Parse.$ = jQuery;
@@ -16,15 +18,15 @@ var blogs = new Blogs();
 blogs.fetch({
 	success: function(blogs) {
 		condole.log('blogs');
-//	    var blogsView = new BlogsView({ collection: blogs });
-//	    blogsView.render();
-//	    $('.main-container').html(blogsView.el);
+	    var blogsView = new BlogsView({ collection: blogs });
+	    blogsView.render();
+	    $('.main-container').html(blogsView.el);
 	},
     error: function(blogs, error) {
         console.log(error);
     }
 });
-/*
+
 var BlogsView =  Parse.View.extend({
     template: Handlebars.compile($('#blogs-tpl').html()),
     render: function(){ 
@@ -32,4 +34,3 @@ var BlogsView =  Parse.View.extend({
         this.$el.html(this.template(collection));
     }
 });
-*/
