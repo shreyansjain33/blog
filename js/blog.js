@@ -22,6 +22,16 @@ var Blogs = Parse.Object.extend(
 
 var blogs = new Blogs;
 
+
+var BlogsView = Parse.View.extend({
+	templates: Handlebars.compile($('#blogs-tpl').html()),
+	render: function(){
+		var collection = { blog: this.collection.toJSON() };
+		this.$el.html(this.template(coolection));
+	}
+});
+
+
 blogs.fetch({
 	success: function(blogs){
 		var blogsView = new BlogsView ({collection: Blogs});
@@ -32,12 +42,3 @@ blogs.fetch({
 		console.log(error);
 	}
 });
-
-var BlogsView = Parse.View.extend({
-	templates: Handlebars.compile($('#blogs-tpl').html()),
-	render: function(){
-		var collection = { blog: this.collection.toJSON() };
-		this.$el.html(this.template(coolection));
-	}
-});
-
