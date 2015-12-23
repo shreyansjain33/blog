@@ -25,6 +25,7 @@ var blogs = new Blogs();
 
 blogs.fetch({
 	success: function(blogs) {
+		condole.log('blogs');
 	    var blogsView = new BlogsView({ collection: blogs });
 	    blogsView.render();
 	    $('.main-container').html(blogsView.el);
