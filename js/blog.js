@@ -1,4 +1,4 @@
-Parse.initialize("BZYDHX8VimegytEoGAITFtIgOPdZWZKQ7FCEqmi6", "pn2u753nBFtWl1jwJWCPAD5mlrGaNLwirJwoUyOV");
+//Parse.initialize("BZYDHX8VimegytEoGAITFtIgOPdZWZKQ7FCEqmi6", "pn2u753nBFtWl1jwJWCPAD5mlrGaNLwirJwoUyOV");
 
 $(function() {
  
@@ -16,6 +16,14 @@ var Blogs = Parse.Collection.extend({
 
 var blogs = new Blogs();
 
+var BlogsView =  Parse.View.extend({
+    template: Handlebars.compile($('#blogs-tpl').html()),
+    render: function(){ 
+        var collection = { blog: this.collection.toJSON() };
+        this.$el.html(this.template(collection));
+    }
+});
+
 blogs.fetch({
 	success: function(blogs) {
 		condole.log('blogs');
@@ -25,13 +33,5 @@ blogs.fetch({
 	},
     error: function(blogs, error) {
         console.log(error);
-    }
-});
-
-var BlogsView =  Parse.View.extend({
-    template: Handlebars.compile($('#blogs-tpl').html()),
-    render: function(){ 
-        var collection = { blog: this.collection.toJSON() };
-        this.$el.html(this.template(collection));
     }
 });
