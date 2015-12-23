@@ -24,10 +24,20 @@ var blogs = new Blogs;
 
 blogs.fetch({
 	success: function(blogs){
-		console.log(blogs);
+		var blogsView = new BlogsView ({collection: Blogs});
+		blogsView.render;
+		$('.main-container').html(blogView.el);
 	},
 	error: function (blogs, error){
 		console.log(error);
+	}
+});
+
+var BlogsView = Parse.View.extend({
+	templates: Handlebars.compile($('#blogs-tpl').html()),
+	render: function(){
+		var collection = { blog: this.collection.toJSON() };
+		this.$el.html(this.template(coolection));
 	}
 });
 
