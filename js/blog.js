@@ -17,15 +17,16 @@ var blogs = new Blogs();
 blogs.fetch({
     success: function(blogs) {
         alert("Awesome!");
-/*        var blogsView = new BlogsView({ collection: blogs });
+        var blogsView = new BlogsView({ collection: blogs });
         blogsView.render();
-        $('.main-container').html(blogsView.el);
-*/    },
+    $('.main-container').html(blogsView.el);
+    },
     error: function(blogs, error) {
+        console.log(error);
         alert("Error!");
     }
 });
-/*
+
 var BlogsView =  Parse.View.extend({
     template: Handlebars.compile($('#blogs-tpl').html()),
     render: function(){ 
