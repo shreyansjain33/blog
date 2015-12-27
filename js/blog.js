@@ -2,7 +2,7 @@ $(function() {
  
     Parse.$ = jQuery;
     Parse.initialize("BZYDHX8VimegytEoGAITFtIgOPdZWZKQ7FCEqmi6", "pn2u753nBFtWl1jwJWCPAD5mlrGaNLwirJwoUyOV");
-    alert("Checkpoint!");
+//    alert("Checkpoint!");
 });
 
 
